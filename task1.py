@@ -1,4 +1,4 @@
-# Adding constant as given in the questions
+  # Adding constant as given in the questions
 pizza_price = 12  
 tuesday_discount = 0.5
 delivery_charge = 2.50
