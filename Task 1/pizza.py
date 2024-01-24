@@ -87,13 +87,13 @@ print("="*26)
 num_pizzas = get_input("How many pizzas ordered? ")
 
 #Asking user if delivery i srequired
-delivery = get_yes_no("Is delivery required? ")  
+delivery = get_yes_no("Is delivery required?(Y/N)")  
 
 #Asking if they are ordering tuesday
-is_tuesday = get_yes_no("Is it Tuesday?")
+is_tuesday = get_yes_no("Is it Tuesday?(Y/N)")
 
 #Asking user if they have used app to order pizzas
-used_app = get_yes_no("Did the customer use the app?")
+used_app = get_yes_no("Did the customer use the app?(Y/N)")
 
 #Calculating total price of pizzas after asking the users
 total = calculate_price(num_pizzas, is_tuesday, delivery, used_app)
