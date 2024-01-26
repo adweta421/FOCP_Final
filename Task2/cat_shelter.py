@@ -3,7 +3,6 @@ import sys
 def analyze_cat_shelter_log(log_file):
     """
     Analyzes the cat shelter log file and prints the required statistics.
-
     Args:
         log_file (str): The path to the cat shelter log file.
 

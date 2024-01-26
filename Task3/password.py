@@ -1,7 +1,9 @@
 import getpass
 
 # File path for storing user information
-file_path = "passwd.txt"
+file_path = r"C:\Users\user\OneDrive - Dynamic Techo\Desktop\FOCP_ASS\FOCP_Final\Task3\passwd.txt"
+
+
 
 # Simple substitution cipher for password encryption
 
@@ -47,6 +49,7 @@ def read_passwd_file(file_path):
     try:
         with open(file_path, 'r') as file:
             lines = file.readlines()
+            print(lines)
             users = [User(*line.strip().split(':')) for line in lines]
         return users
     except FileNotFoundError:
