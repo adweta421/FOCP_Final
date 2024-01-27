@@ -77,7 +77,7 @@ def calculate_price(num_pizzas, is_tuesday, delivery, used_app):
         total *= (1 - app_discount)
         
         
-    return round(total)
+    return total
 
 #Main program starts here
 print("BPP Pizza Price Calculator")
