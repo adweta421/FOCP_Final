@@ -35,6 +35,8 @@ class User:
         self.real_name = real_name
         self.password = password
 
+
+
 # Function to read user information from a file and return a list of User objects
 def read_passwd_file(file_path):
     """
@@ -49,12 +51,23 @@ def read_passwd_file(file_path):
     try:
         with open(file_path, 'r') as file:
             lines = file.readlines()
-            print(lines)
             users = [User(*line.strip().split(':')) for line in lines]
         return users
     except FileNotFoundError:
         return []
 
+# Function to print the content of a file
+def print_file_content(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+            print(f"$ cat {file_path}")
+            for line in lines:
+                print(line.strip())
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        
+        
 # Function to write user information to a file
 def write_passwd_file(file_path, users):
     """
@@ -98,6 +111,17 @@ def validate_password(username, password, users):
     user = next((user for user in users if user.username == username), None)
     return user and encrypt_password(password) == encrypt_password(user.password)
 
+
+# Function to print the content of a file
+def print_file_content(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+            print(content)
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        
+        
 # Function to add a new user to the system
 def add_user(users):
     """
@@ -106,6 +130,7 @@ def add_user(users):
     Args:
         users (list): A list of User objects.
     """
+    print("$ ./adduser.py")
     username = input("Enter new username: ")
     real_name = input("Enter real name: ")
     password = getpass.getpass("Enter password: ")
@@ -117,6 +142,8 @@ def add_user(users):
         users.append(User(username, real_name, password))
         write_passwd_file(file_path, users)
         print("User Created.")
+        print(f"$ cat {file_path}")
+        print_file_content(file_path)
 
 # Function to delete a user from the system
 def delete_user(users):
@@ -124,12 +151,15 @@ def delete_user(users):
     Args:
         users (list): A list of User objects.
     """
+    print("$ ./deluser.py")
     username = input("Enter username: ")
 
     if user_exists(username, users):
         users[:] = [user for user in users if user.username != username]
         write_passwd_file(file_path, users)
         print("User Deleted")
+        print(f"$ cat {file_path}")
+        print_file_content(file_path)
     else:
         print("User not found")
 
@@ -141,6 +171,7 @@ def change_password(users):
     Args:
         users (list): A list of User objects.
     """
+    print("$ ./changepasswd.py")
     username = input("User: ")
 
     user = next((user for user in users if user.username == username), None)
@@ -154,12 +185,15 @@ def change_password(users):
                 user.password = new_password
                 write_passwd_file(file_path, users)
                 print("Password changed")
+                print(f"$ cat {file_path}")
+                print_file_content(file_path)
             else:
                 print("Passwords do not match")
         else:
             print("Invalid current password")
     else:
         print("User not found")
+        
 
 # Function for user login
 def login(users):
@@ -169,6 +203,7 @@ def login(users):
     Args:
         users (list): A list of User objects.
     """
+    print("$ ./login.py")
     username = input("User: ")
     password = getpass.getpass("Password: ")
 
@@ -179,11 +214,11 @@ def login(users):
 
 # Main program
 users = read_passwd_file(file_path)
-
+print(f"$ cat {file_path}")
+print_file_content(file_path)
 while True:
     print("\n1. Add User\n2. Delete User\n3. Change Password\n4. Login\n5. Exit")
     choice = input("Enter your choice (1-5): ")
-
     if choice == "1":
         add_user(users)
     elif choice == "2":

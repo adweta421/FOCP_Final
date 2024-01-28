@@ -2,6 +2,6 @@ Final Task
 
 Task 1: Python program, "Pizza Price Calculator" for BPP, computes pizza order cost considering factors like discounts, delivery, and app usage. 
 
-Task 2 : The Cat Shelter Log Analyzer, implemented in Python, scrutinizes daily shelter logs with RFID and motion data, providing users insights on visits, intrusions, and visit durations based on the input filename.
+Task 2 : The Cat Shelter Log Analyzer,python program analyzes daily cat shelter logs. It calculates the frequency, duration, and incidents for the resident cat, providing insights into feline activities.
 
-Task 3: Password Management, Python programs emulate fundamental Unix password commands, enabling users to add, delete, and modify accounts, and authenticate logins based on a simplified password file format.
+Task 3: Password Management,  Password Management,python program implements adduser, deluser, passwd, and login for managing a simplified Unix password file and allows user creation, deletion, password change, and authentication.
